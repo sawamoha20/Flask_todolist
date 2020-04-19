@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todoist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>MYToDoList</h1>
+    </header>
+    <form action="/" method="POST" >
+        <input type="text" name="todo-input" id="">
+        <button class="todo-button"> <i class="fas fa-plus-square"></i> </button>
+    </form>
+    <div class="todo-container">
+        <ul>
+            {% for i in Data %}
+                <li>{{i.title}}</li>
+                <a href="/delete/{{i.id}}" class="delete">Delete</a>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
